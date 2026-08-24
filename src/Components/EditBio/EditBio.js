@@ -25,7 +25,7 @@ const EditBio = () => {
         e.preventDefault();
 
         if (updatedBio) {
-            fetch(`http://test.atibhooj.com/userCover/${cuser?.email}`, {
+            fetch(`http://localhost:5000/userCover/${cuser?.email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',

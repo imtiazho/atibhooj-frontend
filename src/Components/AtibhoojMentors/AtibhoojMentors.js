@@ -10,7 +10,7 @@ import Footer from '../Footer/Footer';
 const AtibhoojMentors = () => {
     const [mentors, setMentors] = useState([]);
     useEffect(() => {
-        fetch(`http://test.atibhooj.com/atibhoojMentors`)
+        fetch(`http://localhost:5000/atibhoojMentors`)
             .then(res => res.json())
             .then(data => setMentors(data))
     }, [])

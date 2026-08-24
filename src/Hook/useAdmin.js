@@ -15,7 +15,7 @@ const useAdmin = (user) => {
 
     useEffect(() => {
         const email = user?.email;
-        fetch(`http://test.atibhooj.com/admin/${email}`, {
+        fetch(`http://localhost:5000/admin/${email}`, {
             method: "GET",
             headers: {
                 authorization: `${user?.email} ${localStorage.getItem('accessToken')}`

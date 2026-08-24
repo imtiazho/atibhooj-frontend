@@ -34,19 +34,19 @@ const UserProfile = () => {
     };
 
     useEffect(() => {
-        fetch(`http://test.atibhooj.com/user?email=${gmailId}`)
+        fetch(`http://localhost:5000/user?email=${gmailId}`)
             .then(res => res.json())
             .then(data => setUsers(...data))
     }, [gmailId]);
 
     useEffect(() => {
-        fetch(`http://test.atibhooj.com/post?email=${gmailId}`)
+        fetch(`http://localhost:5000/post?email=${gmailId}`)
             .then(res => res.json())
             .then(data => setUserDbPost(data))
     }, [gmailId]);
 
     useEffect(() => {
-        fetch(`http://test.atibhooj.com/user?email=${user?.email}`)
+        fetch(`http://localhost:5000/user?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setCurrentUserData(...data))
     }, [user?.email])
@@ -59,7 +59,7 @@ const UserProfile = () => {
         // These code for followers
         let newFollower = [...currentUserData.allFollowing, { userData }];
         if (newFollower) {
-            fetch(`http://test.atibhooj.com/myFollowing/${user?.email}`, {
+            fetch(`http://localhost:5000/myFollowing/${user?.email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -82,7 +82,7 @@ const UserProfile = () => {
         // These code for influencer
         const newFollowers = parseInt(userDb?.followers + 1)
         if (newFollowers) {
-            fetch(`http://test.atibhooj.com/myFollowers/${userDb?.userEmail}`, {
+            fetch(`http://localhost:5000/myFollowers/${userDb?.userEmail}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',

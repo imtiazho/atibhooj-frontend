@@ -118,14 +118,14 @@ const MegazineUploadModal = ({ setModalOpen }) => {
         const formData = new FormData();
         formData.append('image', imageFile);
         if (imageFile) {
-            fetch('https://api.imgbb.com/1/upload?key=a17fed125c9608497b88a6c1242f16f2', {
+            fetch('https://api.imgbb.com/1/upload?key=47525efe69e4554af8476259fe5ef0b5', {
                 method: 'POST',
                 body: formData
             })
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        fetch(`http://test.atibhooj.com/megazineUpload`, {
+                        fetch(`http://localhost:5000/megazineUpload`, {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json',

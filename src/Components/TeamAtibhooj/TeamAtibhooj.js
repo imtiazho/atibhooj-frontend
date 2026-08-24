@@ -9,7 +9,7 @@ import Footer from '../Footer/Footer';
 const TeamAtibhooj = () => {
     const [teamMembers, setTeamMembers] = useState([]);
     useEffect(() => {
-        fetch(`http://test.atibhooj.com/teamMembers`)
+        fetch(`http://localhost:5000/teamMembers`)
             .then(res => res.json())
             .then(data => setTeamMembers(data))
     }, [])

@@ -18,7 +18,7 @@ const AllUsers = () => {
     };
 
     useEffect(() => {
-        fetch("http://test.atibhooj.com/users", {
+        fetch("http://localhost:5000/users", {
             headers: {
                 authorization: `${user?.email} ${localStorage.getItem('accessToken')}`
             }
@@ -37,7 +37,7 @@ const AllUsers = () => {
     const handleAddToTeamAtibhooj = (userID) => {
         const targetedUser = users.find(eachUser => eachUser._id === userID);
         const newUserType = [...targetedUser?.userType, "Team Atibhooj"];
-        fetch(`http://test.atibhooj.com/atibhoojMemberHandle/${userID}`, {
+        fetch(`http://localhost:5000/atibhoojMemberHandle/${userID}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -56,7 +56,7 @@ const AllUsers = () => {
             })
             .then(data => console.log(data))
         if (newUserType) {
-            fetch(`http://test.atibhooj.com/atibhoojBadgeHandle/${userID}`, {
+            fetch(`http://localhost:5000/atibhoojBadgeHandle/${userID}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -76,7 +76,7 @@ const AllUsers = () => {
         const newUserType = targetedUser?.userType.filter(eachType => eachType !== "Team Atibhooj");
         // console.log(newUserType);
 
-        fetch(`http://test.atibhooj.com/atibhoojMemberHandle/${userID}`, {
+        fetch(`http://localhost:5000/atibhoojMemberHandle/${userID}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -96,7 +96,7 @@ const AllUsers = () => {
             .then(data => console.log(data))
 
         if (newUserType) {
-            fetch(`http://test.atibhooj.com/atibhoojBadgeHandle/${userID}`, {
+            fetch(`http://localhost:5000/atibhoojBadgeHandle/${userID}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -115,7 +115,7 @@ const AllUsers = () => {
     const handleAddToMentorsAtibhooj = (userID) => {
         const targetedUser = users.find(eachUser => eachUser._id === userID);
         const newUserType = [...targetedUser?.userType, "Mentor"];
-        fetch(`http://test.atibhooj.com/atibhoojMemberHandle/${userID}`, {
+        fetch(`http://localhost:5000/atibhoojMemberHandle/${userID}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -135,7 +135,7 @@ const AllUsers = () => {
             .then(data => console.log(data))
 
         if (newUserType) {
-            fetch(`http://test.atibhooj.com/atibhoojBadgeHandle/${userID}`, {
+            fetch(`http://localhost:5000/atibhoojBadgeHandle/${userID}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -153,7 +153,7 @@ const AllUsers = () => {
     const handleRemoveFromMentorsAtibhooj = (userID) => {
         const targetedUser = users?.find(eachUser => eachUser._id === userID);
         const newUserType = targetedUser?.userType.filter(eachType => eachType !== "Mentor");
-        fetch(`http://test.atibhooj.com/atibhoojMemberHandle/${userID}`, {
+        fetch(`http://localhost:5000/atibhoojMemberHandle/${userID}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -173,7 +173,7 @@ const AllUsers = () => {
             .then(data => console.log(data))
 
         if (newUserType) {
-            fetch(`http://test.atibhooj.com/atibhoojBadgeHandle/${userID}`, {
+            fetch(`http://localhost:5000/atibhoojBadgeHandle/${userID}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -192,7 +192,7 @@ const AllUsers = () => {
     const handleAddToActiveMembers = (userID) => {
         const targetedUser = users.find(eachUser => eachUser._id === userID);
         const newUserType = [...targetedUser?.userType, "Active Member"];
-        fetch(`http://test.atibhooj.com/atibhoojMemberHandle/${userID}`, {
+        fetch(`http://localhost:5000/atibhoojMemberHandle/${userID}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -212,7 +212,7 @@ const AllUsers = () => {
             .then(data => console.log(data))
 
         if (newUserType) {
-            fetch(`http://test.atibhooj.com/atibhoojBadgeHandle/${userID}`, {
+            fetch(`http://localhost:5000/atibhoojBadgeHandle/${userID}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -230,7 +230,7 @@ const AllUsers = () => {
     const handleRemoveFromActiveMembers = (userID) => {
         const targetedUser = users?.find(eachUser => eachUser._id === userID);
         const newUserType = targetedUser?.userType.filter(eachType => eachType !== "Active Member");
-        fetch(`http://test.atibhooj.com/atibhoojMemberHandle/${userID}`, {
+        fetch(`http://localhost:5000/atibhoojMemberHandle/${userID}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -250,7 +250,7 @@ const AllUsers = () => {
             .then(data => console.log(data))
 
         if (newUserType) {
-            fetch(`http://test.atibhooj.com/atibhoojBadgeHandle/${userID}`, {
+            fetch(`http://localhost:5000/atibhoojBadgeHandle/${userID}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -269,7 +269,7 @@ const AllUsers = () => {
     const handleAddToContributors = (userID) => {
         const targetedUser = users.find(eachUser => eachUser._id === userID);
         const newUserType = [...targetedUser?.userType, "contributor"];
-        fetch(`http://test.atibhooj.com/atibhoojMemberHandle/${userID}`, {
+        fetch(`http://localhost:5000/atibhoojMemberHandle/${userID}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -289,7 +289,7 @@ const AllUsers = () => {
             .then(data => console.log(data))
 
         if (newUserType) {
-            fetch(`http://test.atibhooj.com/atibhoojBadgeHandle/${userID}`, {
+            fetch(`http://localhost:5000/atibhoojBadgeHandle/${userID}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -307,7 +307,7 @@ const AllUsers = () => {
     const handleRemoveFromContributors = (userID) => {
         const targetedUser = users?.find(eachUser => eachUser._id === userID);
         const newUserType = targetedUser?.userType.filter(eachType => eachType !== "contributor");
-        fetch(`http://test.atibhooj.com/atibhoojMemberHandle/${userID}`, {
+        fetch(`http://localhost:5000/atibhoojMemberHandle/${userID}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -327,7 +327,7 @@ const AllUsers = () => {
             .then(data => console.log(data))
 
         if (newUserType) {
-            fetch(`http://test.atibhooj.com/atibhoojBadgeHandle/${userID}`, {
+            fetch(`http://localhost:5000/atibhoojBadgeHandle/${userID}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -346,7 +346,7 @@ const AllUsers = () => {
     const handleAddToOGMembers = (userID) => {
         const targetedUser = users.find(eachUser => eachUser._id === userID);
         const newUserType = [...targetedUser?.userType, "ogmember"];
-        fetch(`http://test.atibhooj.com/atibhoojMemberHandle/${userID}`, {
+        fetch(`http://localhost:5000/atibhoojMemberHandle/${userID}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -366,7 +366,7 @@ const AllUsers = () => {
             .then(data => console.log(data))
 
         if (newUserType) {
-            fetch(`http://test.atibhooj.com/atibhoojBadgeHandle/${userID}`, {
+            fetch(`http://localhost:5000/atibhoojBadgeHandle/${userID}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -384,7 +384,7 @@ const AllUsers = () => {
     const handleRemoveFromOGMembers = (userID) => {
         const targetedUser = users?.find(eachUser => eachUser._id === userID);
         const newUserType = targetedUser?.userType.filter(eachType => eachType !== "ogmember");
-        fetch(`http://test.atibhooj.com/atibhoojMemberHandle/${userID}`, {
+        fetch(`http://localhost:5000/atibhoojMemberHandle/${userID}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -404,7 +404,7 @@ const AllUsers = () => {
             .then(data => console.log(data))
 
         if (newUserType) {
-            fetch(`http://test.atibhooj.com/atibhoojBadgeHandle/${userID}`, {
+            fetch(`http://localhost:5000/atibhoojBadgeHandle/${userID}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',

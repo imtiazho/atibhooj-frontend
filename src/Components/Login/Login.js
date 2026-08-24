@@ -57,7 +57,7 @@ const Login = () => {
         e.preventDefault();
 
         const emailToToken = userInfo.email
-        fetch('http://test.atibhooj.com/jwtTokenGenerator', {
+        fetch('http://localhost:5000/jwtTokenGenerator', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

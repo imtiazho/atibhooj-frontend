@@ -14,7 +14,7 @@ const Navbar = () => {
     const [admin, setAdmin] = useAdmin(cuser);
 
     useEffect(() => {
-        fetch(`http://test.atibhooj.com/user?email=${cuser?.email}`)
+        fetch(`http://localhost:5000/user?email=${cuser?.email}`)
             .then(res => res.json())
             .then(data => setUsers(...data))
     }, [cuser?.email])

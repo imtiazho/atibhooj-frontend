@@ -12,7 +12,7 @@ import Footer from '../Footer/Footer';
 const Magazine = () => {
     const [megazines, setMegazines] = useState([]);
     useEffect(() => {
-        fetch("http://test.atibhooj.com/megazines")
+        fetch("http://localhost:5000/megazines")
             .then(res => res.json())
             .then(data => setMegazines(data))
 
@@ -20,7 +20,7 @@ const Magazine = () => {
     const handleMegazineQuantity = (megazineID) => {
         const targetedMegazine = megazines.find(eachMegazine => eachMegazine._id === megazineID);
         const newQuantity = parseInt(targetedMegazine?.downloadCount) + 1;
-        fetch(`http://test.atibhooj.com/megazinesquantity/${megazineID}`, {
+        fetch(`http://localhost:5000/megazinesquantity/${megazineID}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

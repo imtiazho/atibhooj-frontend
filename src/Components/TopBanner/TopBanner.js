@@ -10,7 +10,7 @@ import 'swiper/css';
 const TopBanner = () => {
     const [TopBanners, setTopBanners] = useState([]);
     useEffect(() => {
-        fetch("http://test.atibhooj.com/allTopbanner")
+        fetch("http://localhost:5000/allTopbanner")
             .then(res => res.json())
             .then(data => setTopBanners(data))
     }, [])

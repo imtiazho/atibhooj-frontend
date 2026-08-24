@@ -78,7 +78,7 @@ const SignUp = () => {
         e.preventDefault();
 
         const emailToToken = userInfo.email
-        fetch('http://test.atibhooj.com/jwtTokenGenerator', {
+        fetch('http://localhost:5000/jwtTokenGenerator', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -95,7 +95,7 @@ const SignUp = () => {
         if (userInfo.name || userInfo.password || userInfo.confirmPassword || userInfo.email) {
             await createUserWithEmailAndPassword(userInfo.email, userInfo.password);
             await updateProfile({ displayName: userInfo.name });
-            fetch(`http://test.atibhooj.com/users/${userInfo.email}`, {
+            fetch(`http://localhost:5000/users/${userInfo.email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',

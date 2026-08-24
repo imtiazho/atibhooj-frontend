@@ -25,7 +25,7 @@ const PostContainer = () => {
     const [user, setUser] = useState({})
     const [postID, setPostId] = useState("");
     useEffect(() => {
-        fetch(`http://test.atibhooj.com/user?email=${cuser?.email}`)
+        fetch(`http://localhost:5000/user?email=${cuser?.email}`)
             .then(res => res.json())
             .then(data => setUser(...data))
     }, [cuser?.email])
@@ -34,13 +34,13 @@ const PostContainer = () => {
     // const { serviceLoading, serviceError, data: serviceData, refetch } = useQuery({
     //     queryKey: ['posts'],
     //     queryFn: () =>
-    //         fetch('http://test.atibhooj.com/posts').then(
+    //         fetch('http://localhost:5000/posts').then(
     //             (res) => res.json(),
     //         ),
     // })
 
     useEffect(() => {
-        fetch("http://test.atibhooj.com/posts")
+        fetch("http://localhost:5000/posts")
             .then(res => res.json())
             .then(data => setPosts(data))
     }, [])
@@ -54,7 +54,7 @@ const PostContainer = () => {
     const handleLike = (postId) => {
         const targetedPost = posts.find(eachpost => eachpost._id === postId);
         const likeCount = parseInt(targetedPost?.totalLike) + 1;
-        fetch(`http://test.atibhooj.com/postLike/${postId}`, {
+        fetch(`http://localhost:5000/postLike/${postId}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -82,7 +82,7 @@ const PostContainer = () => {
         const targetedPost = posts.find(eachpost => eachpost._id === postID);
         const commentUpdated = [...targetedPost.comments, { comment: commentNew, commenter: cuser?.displayName, commenterImage: user?.userProfilePic, reactOnComment: "0" }]
 
-        fetch(`http://test.atibhooj.com/postComment/${postID}`, {
+        fetch(`http://localhost:5000/postComment/${postID}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

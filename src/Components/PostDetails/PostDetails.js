@@ -26,13 +26,13 @@ const PostDetails = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://test.atibhooj.com/user?email=${cuser?.email}`)
+        fetch(`http://localhost:5000/user?email=${cuser?.email}`)
             .then(res => res.json())
             .then(data => setUser(...data))
     }, [cuser?.email])
 
     useEffect(() => {
-        fetch(`http://test.atibhooj.com/post-details/${postID}`)
+        fetch(`http://localhost:5000/post-details/${postID}`)
             .then(res => res.json())
             .then(data => setPosts(data))
     }, [postID])
@@ -57,7 +57,7 @@ const PostDetails = () => {
         e.preventDefault();
         const commentUpdated = [...posts.comments, { comment: commentNew, commenter: cuser?.displayName, commenterImage: user?.userProfilePic, reactOnComment: "0" }]
 
-        fetch(`http://test.atibhooj.com/postComment/${postID}`, {
+        fetch(`http://localhost:5000/postComment/${postID}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
